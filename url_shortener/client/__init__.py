@@ -1,4 +1,4 @@
-from . import http_client
+from . import vk_client, bit_client
 
 import config
 
@@ -7,7 +7,7 @@ VK_PARAMS = {
     'access_token': config.SERVICE_TOKEN
 }
 
-VKClient = http_client.HTTPClient(
+VKClient = vk_client.VKClient(
     'https://api.vk.com',
     default_params=VK_PARAMS
 )

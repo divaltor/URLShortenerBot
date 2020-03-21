@@ -1,10 +1,12 @@
 from typing import Optional
 
+from abc import ABCMeta, abstractmethod
+
 import httpx
 from loguru import logger
 
 
-class HTTPClient:
+class BaseHTTPClient(metaclass=ABCMeta):
 
     def __init__(
             self,
@@ -27,9 +29,18 @@ class HTTPClient:
         custom_headers = headers or {}
         custom_params = params or {}
 
-        logger.debug(f'Sending request to {url}', params=custom_params, headers=custom_headers)
+        logger.debug(f'Sending request to {url}')
         response = await self.http_client.get(url=url, params=custom_params, headers=custom_headers)
         logger.debug(f'Response return status_code: {response.status_code}, body: {response.text}')
 
         return response
+
+    @abstractmethod
+    def process_response(self, response):
+        pass
+
+    @abstractmethod
+    def get_short_link(self, url):
+        pass
+
 
