@@ -23,6 +23,6 @@ class VKClient(BaseHTTPClient):
         return response['response']['short_url']
 
     async def get_short_link(self, url: str):
-        response = await self.get('/method/utils.getShortLink', params={'url': quote(url)})
+        response = await self.get('/method/utils.getShortLink', params={'url': url})
 
         return self._process_response(response.json())

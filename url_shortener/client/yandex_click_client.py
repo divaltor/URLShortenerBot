@@ -17,6 +17,6 @@ class YandexClickClient(BaseHTTPClient):
         pass
 
     async def get_short_link(self, url: str):
-        response = await self.get('/--', params={'url': quote(url)})
+        response = await self.get('/--', params={'url': url})
 
         return response.text
