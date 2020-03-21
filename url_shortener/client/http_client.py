@@ -29,8 +29,18 @@ class BaseHTTPClient(metaclass=ABCMeta):
         custom_headers = headers or {}
         custom_params = params or {}
 
-        logger.debug(f'Sending request to {url}')
+        logger.debug(f'Sending GET request to {url}')
         response = await self.http_client.get(url=url, params=custom_params, headers=custom_headers)
+        logger.debug(f'Response return status_code: {response.status_code}, body: {response.text}')
+
+        return response
+
+    async def post(self, url: str, data: dict, params: Optional[dict] = None, headers: Optional[dict] = None):
+        custom_headers = headers or {}
+        custom_params = params or {}
+
+        logger.debug(f'Sending POST request to {url}')
+        response = await self.http_client.post(url=url, data=data, params=custom_params, headers=custom_headers)
         logger.debug(f'Response return status_code: {response.status_code}, body: {response.text}')
 
         return response
