@@ -13,4 +13,4 @@ CLIENTS = {
 async def get_client(state: FSMContext):
     state_data = await state.get_data()
 
-    return CLIENTS[state_data.get('shortener', 'VK')]
+    return CLIENTS[state_data.get('shortener', 'vk.cc')]
