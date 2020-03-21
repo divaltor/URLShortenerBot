@@ -14,4 +14,4 @@ class ClientMiddleware(BaseMiddleware):
         state_data = await state.get_data()
 
         if state_data.get('shortener') is None:
-            await state.update_data(shortener='VK')
+            await state.update_data(shortener='vk.cc')

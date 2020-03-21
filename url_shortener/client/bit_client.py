@@ -11,7 +11,7 @@ class BITClient(BaseHTTPClient):
         super().__init__(base_url, *args, **kwargs)
 
     def __repr__(self):
-        return 'BITLY'
+        return 'bit.ly'
 
     def _process_response(self, response: Optional[dict] = None):
         if response is None or response.get('message'):
