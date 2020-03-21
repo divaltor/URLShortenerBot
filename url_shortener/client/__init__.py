@@ -10,10 +10,13 @@ VKClient = vk_client.VKClient(
     }
 )
 
-if config.ENABLED_CLIENTS['BIT']:
-    BITClient = http_client.HTTPClient(
-        'https://api-ssl.bitly.com',
-        default_headers=BIT_HEADERS
-    )
+BITClient = bit_client.BITClient(
+    'https://api-ssl.bitly.com',
+    default_headers={
+        'Authorization': f'Bearer {config.BIT_TOKEN}',
+        'Host': 'api-ssl.bitly.com',
+        'Content-Type': 'application/json'
+    }
+)
 
 __all__ = ['VKClient', 'BITClient']
