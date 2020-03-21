@@ -61,8 +61,8 @@ async def handle_link(msg: types.Message, state: FSMContext):
 
     short_url = await client.get_short_link(url)
 
-    if response.get('response') is not None:
-        return await msg.reply(f'Short link: {response["response"]["short_url"]}', disable_web_page_preview=True)
+    if short_url is not None:
+        return await msg.reply(f'Short link: {short_url}', disable_web_page_preview=True)
 
     await msg.reply(f'<b>Invalid link</b>')
 
