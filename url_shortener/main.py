@@ -1,5 +1,5 @@
 from aiogram import Bot, Dispatcher, executor, types
-from aiogram.contrib.fsm_storage.memory import MemoryStorage
+from aiogram.contrib.fsm_storage.redis import RedisStorage2
 from aiogram.dispatcher import FSMContext
 from loguru import logger
 
@@ -10,7 +10,7 @@ from middlewares.client_middleware import ClientMiddleware
 
 from utils.shortener import get_client, CLIENTS
 
-storage = MemoryStorage()
+storage = RedisStorage2(db='url', password=config.REDIS_PASS)
 bot = Bot(config.BOT_TOKEN, parse_mode='HTML')
 dp = Dispatcher(bot, storage=storage)
 dp.middleware.setup(ClientMiddleware())

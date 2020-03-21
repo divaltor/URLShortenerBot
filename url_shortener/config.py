@@ -4,3 +4,5 @@ API_VERSION = '5.103'
 BIT_TOKEN = ''
 
 BOT_TOKEN = ''
+
+REDIS_PASS = ''
