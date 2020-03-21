@@ -19,9 +19,7 @@ logger.add('../info.log', rotation='1 week')
 
 
 @dp.message_handler(commands=['start'])
-async def send_start(msg: types.Message, state: FSMContext):
-
-    logger.debug(f'{state=}')
+async def send_start(msg: types.Message):
 
     setting_keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
     setting_keyboard.add(types.KeyboardButton('⚙️ Settings'))
