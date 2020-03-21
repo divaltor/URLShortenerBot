@@ -1,5 +1,3 @@
-from collections import defaultdict
-
 SERVICE_TOKEN = ''
 API_VERSION = '5.103'
 
