@@ -1,5 +1,7 @@
 from .http_client import BaseHTTPClient
 
+from urllib.parse import quote
+
 from typing import Optional
 
 from loguru import logger
@@ -21,6 +23,6 @@ class VKClient(BaseHTTPClient):
         return response['response']['short_url']
 
     async def get_short_link(self, url: str):
-        response = await self.get('/method/utils.getShortLink', params={'url': url})
+        response = await self.get('/method/utils.getShortLink', params={'url': quote(url)})
 
         return self._process_response(response.json())

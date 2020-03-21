@@ -1,5 +1,7 @@
 from .http_client import BaseHTTPClient
 
+from urllib.parse import quote
+
 from typing import Optional
 
 
@@ -15,6 +17,6 @@ class YandexClickClient(BaseHTTPClient):
         pass
 
     async def get_short_link(self, url: str):
-        response = await self.get('/--', params={'url': url})
+        response = await self.get('/--', params={'url': quote(url)})
 
         return response.text

@@ -20,7 +20,7 @@ class BITClient(BaseHTTPClient):
 
         return response['link']
 
-    async def get_short_link(self, url):
+    async def get_short_link(self, url: str):
         response = await self.post('/v4/shorten', json={'long_url': url})
 
         return self._process_response(response.json())

@@ -5,7 +5,8 @@ from client import *
 CLIENTS = {
     str(VKClient): VKClient,
     str(BITClient): BITClient,
-    str(YAClickClient): YAClickClient
+    str(YAClickClient): YAClickClient,
+    str(ISGDClient): ISGDClient
 }
 
 

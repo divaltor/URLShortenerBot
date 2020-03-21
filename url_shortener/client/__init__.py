@@ -1,4 +1,4 @@
-from . import vk_client, bit_client, yandex_click_client
+from . import vk_client, bit_client, yandex_click_client, isgd_client
 
 import config
 
@@ -23,4 +23,8 @@ YAClickClient = yandex_click_client.YandexClickClient(
     'https://clck.ru'
 )
 
-__all__ = ['VKClient', 'BITClient', 'YAClickClient']
+ISGDClient = isgd_client.ISGDClient(
+    'https://is.gd'
+)
+
+__all__ = ['VKClient', 'BITClient', 'YAClickClient', 'ISGDClient']
