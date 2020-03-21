@@ -35,18 +35,27 @@ class BaseHTTPClient(metaclass=ABCMeta):
 
         return response
 
-    async def post(self, url: str, data: dict, params: Optional[dict] = None, headers: Optional[dict] = None):
+    async def post(
+            self,
+            url: str,
+            data: Optional[dict] = None,
+            params: Optional[dict] = None,
+            headers: Optional[dict] = None,
+            json: Optional[dict] = None
+    ):
         custom_headers = headers or {}
         custom_params = params or {}
+        custom_data = data or {}
+        custom_json = json or {}
 
         logger.debug(f'Sending POST request to {url}')
-        response = await self.http_client.post(url=url, data=data, params=custom_params, headers=custom_headers)
+        response = await self.http_client.post(url=url, data=custom_data, params=custom_params, headers=custom_headers, json=custom_json)
         logger.debug(f'Response return status_code: {response.status_code}, body: {response.text}')
 
         return response
 
     @abstractmethod
-    def process_response(self, response):
+    def _process_response(self, response):
         pass
 
     @abstractmethod
