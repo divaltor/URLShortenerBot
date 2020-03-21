@@ -1,10 +1,11 @@
 from aiogram.dispatcher import FSMContext
 
-from client import VKClient, BITClient
+from client import *
 
 CLIENTS = {
     str(VKClient): VKClient,
-    str(BITClient): BITClient
+    str(BITClient): BITClient,
+    str(YAClickClient): YAClickClient
 }
 
 

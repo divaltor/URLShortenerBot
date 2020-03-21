@@ -1,4 +1,4 @@
-from . import vk_client, bit_client
+from . import vk_client, bit_client, yandex_click_client
 
 import config
 
@@ -19,4 +19,8 @@ BITClient = bit_client.BITClient(
     }
 )
 
-__all__ = ['VKClient', 'BITClient']
+YAClickClient = yandex_click_client.YandexClickClient(
+    'https://clck.ru'
+)
+
+__all__ = ['VKClient', 'BITClient', 'YAClickClient']
