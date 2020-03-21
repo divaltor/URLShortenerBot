@@ -5,6 +5,11 @@ description = "Bot for shortening links"
 authors = ["Vlad <kuklavudu78@gmail.com>"]
 license = "MIT"
 
+repository = "https://github.com/Divaltor/URLShortenerBot"
+homepage = "https://github.com/Divaltor/URLShortenerBot"
+
+keywords = ["shortener", "url", "bot", "vk", "bitly"]
+
 [tool.poetry.dependencies]
 python = "^3.6"
 aiogram = "^2.6.1"
