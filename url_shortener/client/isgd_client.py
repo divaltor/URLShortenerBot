@@ -24,7 +24,7 @@ class ISGDClient(BaseHTTPClient):
     async def get_short_link(self, url: str):
         response = await self.get('/create.php', params={
             'format': 'json',
-            'url': quote(url)
+            'url': url
         })
 
         return self._process_response(response.json())
