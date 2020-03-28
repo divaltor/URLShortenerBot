@@ -1,6 +1,34 @@
-## Install
+## Development
 
-Supported python 3.8. May be 3.7 :D
+### System dependencies
+* Python 3.7+ (Python 3.8 with Docker)
+* poetry
+* Docker
+* docker-compose
+
+### Setup environment
+* Copy .env.sample to .env file and change values in this file
+
+## Deployment
+
+### docker-compose
+
+Pre-requirements:
+* Docker
+* docker-compose
+
+Steps:
+* Prepare .env file
+* Run `docker-compose build && docker-compose up -d`
+* Enjoy
+
+Stopping:
+* `docker-compose stop`
+
+Destroying:
+* `docker-compose down`
+
+### Without docker
 
 Install dependencies with [**Poetry**](https://python-poetry.org/docs/)
 ```cmd
@@ -11,6 +39,4 @@ or via pip
 $ pip install -r requirements.txt
 ```
 
-Then put your service token from the VK application and the token from bitly into config.py. Also add the password for radishes and bot token
-
-And run main.py
+Setup `.env` file and run main.py
