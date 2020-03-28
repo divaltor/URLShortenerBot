@@ -7,6 +7,10 @@ services:
     depends_on:
       - redis
     environment:
+      BIT_TOKEN:
+      BOT_TOKEN:
+      API_VERSION:
+      SERVICE_TOKEN:
       REDIS_HOST: redis
       REDIS_PORT: 6379
     command: python3 ./url_shortener/main.py

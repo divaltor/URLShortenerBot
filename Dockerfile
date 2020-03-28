@@ -1,5 +1,8 @@
 FROM python:3.8.2-slim-buster
 
+ENV PYTHONPATH "${PYTHONPATH}:/code"
+ENV PATH "/code:${PATH}"
+
 WORKDIR /code
 
 RUN pip install poetry
