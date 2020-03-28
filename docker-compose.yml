@@ -1,0 +1,21 @@
+version: '3.1'
+services:
+  bot:
+    build:
+      context: .
+    restart: on-failure
+    depends_on:
+      - redis
+    environment:
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+    command: python3 ./url_shortener/main.py
+
+  redis:
+    image: redis:5-alpine
+    restart: on-failure
+    volumes:
+    - redis-data:/data
+
+volumes:
+  redis-data:

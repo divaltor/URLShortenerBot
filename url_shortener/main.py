@@ -10,7 +10,7 @@ from middlewares.client_middleware import ClientMiddleware
 
 from utils.shortener import get_client, CLIENTS
 
-storage = RedisStorage2(password=config.REDIS_PASS)
+storage = RedisStorage2(host=config.REDIS_HOST, port=config.REDIS_PORT)
 bot = Bot(config.BOT_TOKEN, parse_mode='HTML')
 dp = Dispatcher(bot, storage=storage)
 dp.middleware.setup(ClientMiddleware())

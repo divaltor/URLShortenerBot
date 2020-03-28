@@ -1,8 +1,13 @@
-SERVICE_TOKEN = ''
-API_VERSION = '5.103'
+from envparse import env
 
-BIT_TOKEN = ''
+env.read_envfile()
 
-BOT_TOKEN = ''
+SERVICE_TOKEN = env.str('SERVICE_TOKEN')
+API_VERSION = env.float('API_VERSION', default=5.103)
 
-REDIS_PASS = ''
+BIT_TOKEN = env.str('BIT_TOKEN')
+
+BOT_TOKEN = env.str('BOT_TOKEN')
+
+REDIS_HOST = env.str('REDIS_HOST', default='localhost')
+REDIS_PORT = env.int('REDIS_PORT', default=6379)
