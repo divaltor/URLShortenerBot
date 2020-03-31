@@ -56,10 +56,10 @@ class BaseHTTPClient(metaclass=ABCMeta):
 
     @abstractmethod
     def _process_response(self, response):
-        pass
+        raise NotImplementedError
 
     @abstractmethod
     def get_short_link(self, url):
-        pass
+        raise NotImplementedError
 
 

@@ -14,7 +14,7 @@ class YandexClickClient(BaseHTTPClient):
         return 'clck.ru'
 
     def _process_response(self, response: Optional[dict] = None):
-        pass
+        raise NotImplementedError
 
     async def get_short_link(self, url: str):
         response = await self.get('/--', params={'url': url})
