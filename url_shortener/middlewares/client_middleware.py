@@ -8,10 +8,11 @@ class ClientMiddleware(BaseMiddleware):
         super().__init__()
 
     async def on_process_message(self, msg: types.Message, data: dict):
-
         state: FSMContext = data.get('state')
 
-        state_data = await state.get_data()
+        async with state.proxy() as state_data:
+            if state_data.get('shortener') is None:
+                state_data['shortener'] = 'vk.cc'
 
-        if state_data.get('shortener') is None:
-            await state.update_data(shortener='vk.cc')
+            if state_data.get('locale') is None:
+                state_data['locale'] = 'en'

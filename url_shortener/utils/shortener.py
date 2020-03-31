@@ -1,6 +1,7 @@
 from aiogram.dispatcher import FSMContext
 
 from client import *
+from middlewares.i18n import i18n
 
 CLIENTS = {
     str(VKClient): VKClient,
@@ -11,6 +12,10 @@ CLIENTS = {
 
 
 async def get_client(state: FSMContext):
-    state_data = await state.get_data()
+    async with state.proxy() as data:
+        return CLIENTS[data.get('shortener', 'vk.cc')]
 
-    return CLIENTS[state_data.get('shortener', 'vk.cc')]
+
+async def get_lang(state: FSMContext):
+    async with state.proxy() as data:
+        return i18n.AVAILABLE_LANGUAGES[data.get('locale')].title
