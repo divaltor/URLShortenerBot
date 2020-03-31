@@ -24,13 +24,13 @@ dp.middleware.setup(LoggingMiddleware())
 logger.add('../info.log', rotation='1 week')
 
 # Setup dispatcher
-dp.register_message_handler(messages.send_start, commands='start')
-dp.register_message_handler(messages.handle_settings, text='⚙Settings')
-dp.register_message_handler(messages.handle_language, text='🇺🇸Language')
-dp.register_message_handler(messages.handle_link, regexp=r'^(https?:\/\/[^\s]+)$')
+dp.register_message_handler(types.ChatType.is_private, messages.send_start, commands='start')
+dp.register_message_handler(types.ChatType.is_private, messages.handle_settings, text='⚙Settings')
+dp.register_message_handler(types.ChatType.is_private, messages.handle_language, text='🇺🇸Language')
+dp.register_message_handler(types.ChatType.is_private, messages.handle_link, regexp=r'^(https?:\/\/[^\s]+)$')
 
-dp.register_callback_query_handler(callbacks.change_language, lambda call: call.data.startswith('lang'))
-dp.register_callback_query_handler(callbacks.change_client, lambda call: call.data.startswith('client'))
+dp.register_callback_query_handler(types.ChatType.is_private, callbacks.change_language, lambda call: call.data.startswith('lang'))
+dp.register_callback_query_handler(types.ChatType.is_private, callbacks.change_client, lambda call: call.data.startswith('client'))
 
 dp.register_inline_handler(inlines.handle_inline_link, regexp=r'^(https?:\/\/[^\s]+)$')
 
