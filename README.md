@@ -39,7 +39,4 @@ or via pip
 $ pip install -r requirements.txt
 ```
 
-Setup `.env` file and compile translates (enter `url_shortener` directory)
-```cmd
-$ pybabel compile -d locales -D mybot
-```
+Setup `.env` file and run main.py
