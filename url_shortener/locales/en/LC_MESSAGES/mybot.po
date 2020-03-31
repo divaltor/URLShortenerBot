@@ -1,0 +1,50 @@
+# English translations for PROJECT.
+# Copyright (C) 2020 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2020-03-31 18:35+0300\n"
+"PO-Revision-Date: 2020-03-31 12:06+0300\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: handlers/callbacks.py:16 handlers/messages.py:46
+msgid "Current language: {language}"
+msgstr ""
+
+#: handlers/callbacks.py:29
+msgid "Current shortener is: <b>{current_shortener}</b>"
+msgstr ""
+
+#: handlers/inlines.py:18 handlers/messages.py:56
+msgid "Short link: {short_url}"
+msgstr ""
+
+#: handlers/messages.py:15
+msgid "Send link like {link}"
+msgstr ""
+
+#: handlers/messages.py:26
+msgid ""
+"Current shortener is: <b>{shortener}</b>\n"
+"\n"
+"Available shorteners: <b>{shorteners}</b>"
+msgstr ""
+
+#: handlers/messages.py:58
+msgid "<b>Invalid link</b>"
+msgstr ""
+
+#~ msgid "New locale: {locale}"
+#~ msgstr ""
+
