@@ -7,9 +7,7 @@ import config
 from middlewares.client_middleware import ClientMiddleware
 from middlewares.i18n import i18n
 
-import handlers.inlines as inlines
-import handlers.messages as messages
-import handlers.callbacks as callbacks
+import handlers
 
 storage = RedisStorage2(host=config.REDIS_HOST, port=config.REDIS_PORT)
 bot = Bot(config.BOT_TOKEN, parse_mode=types.ParseMode.HTML)
@@ -23,17 +21,10 @@ dp.middleware.setup(LoggingMiddleware())
 # Add logger
 logger.add('../info.log', rotation='1 week')
 
-# Setup dispatcher
-dp.register_message_handler(messages.send_start, types.ChatType.is_private, commands='start')
-dp.register_message_handler(messages.handle_settings, types.ChatType.is_private, text='⚙Settings')
-dp.register_message_handler(messages.handle_language, types.ChatType.is_private, text='🇺🇸Language')
-dp.register_message_handler(messages.handle_link, types.ChatType.is_private, regexp=r'^(https?:\/\/[^\s]+)$')
 
-dp.register_callback_query_handler(callbacks.change_language, types.ChatType.is_private, lambda call: call.data.startswith('lang'))
-dp.register_callback_query_handler(callbacks.change_client, types.ChatType.is_private, lambda call: call.data.startswith('client'))
-
-dp.register_inline_handler(inlines.handle_inline_link, regexp=r'^(https?:\/\/[^\s]+)$')
+async def on_startup(dp: Dispatcher):
+    handlers.setup(dp)
 
 
 if __name__ == '__main__':
-    executor.start_polling(dp)
+    executor.start_polling(dp, on_startup=on_startup)
