@@ -23,7 +23,7 @@ async def handle_inline_link(inline_query: types.InlineQuery, state: FSMContext)
             input_message_content=input_content
         )
 
-        return await inline_query.answer(results=[item], cache_time=3600)
+        return await inline_query.answer(results=[item], cache_time=3)
 
     return
 
