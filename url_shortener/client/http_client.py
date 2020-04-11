@@ -55,11 +55,11 @@ class BaseHTTPClient(metaclass=ABCMeta):
         return response
 
     @abstractmethod
-    def _process_response(self, response):
+    def _process_response(self, response: Optional[dict] = None):
         raise NotImplementedError
 
     @abstractmethod
-    def get_short_link(self, url):
+    async def get_short_link(self, url: str):
         raise NotImplementedError
 
 
