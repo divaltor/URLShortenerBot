@@ -1,7 +1,5 @@
 from .http_client import BaseHTTPClient
 
-from urllib.parse import quote
-
 from typing import Optional
 
 from loguru import logger
@@ -18,7 +16,7 @@ class VKClient(BaseHTTPClient):
     def _process_response(self, response: Optional[dict] = None):
         if response is None or response.get('error'):
             logger.error(f'Error message of response: {response["error"]["error_msg"]}. Error code: {response["error"]["error_code"]}')
-            return None
+            return
 
         return response['response']['short_url']
 

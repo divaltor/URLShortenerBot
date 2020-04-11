@@ -1,7 +1,5 @@
 from .http_client import BaseHTTPClient
 
-from urllib.parse import quote
-
 from typing import Optional
 
 

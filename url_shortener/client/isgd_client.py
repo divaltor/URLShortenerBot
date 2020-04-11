@@ -1,7 +1,6 @@
 from .http_client import BaseHTTPClient
 
 from typing import Optional
-from urllib.parse import quote
 
 from loguru import logger
 
@@ -17,7 +16,7 @@ class ISGDClient(BaseHTTPClient):
     def _process_response(self, response: Optional[dict] = None):
         if response is None or response.get('errorcode'):
             logger.error(f'Error message of response: {response["errormessage"]}. Error code: {response["errorcode"]}')
-            return None
+            return
 
         return response['shorturl']
 

@@ -16,7 +16,7 @@ class BITClient(BaseHTTPClient):
     def _process_response(self, response: Optional[dict] = None):
         if response is None or response.get('message'):
             logger.error(f'Error message of response: {response["message"]}. Error code: {response.get("description")}')
-            return None
+            return
 
         return response['link']
 
