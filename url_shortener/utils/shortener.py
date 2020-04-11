@@ -7,7 +7,9 @@ CLIENTS = {
     str(VKClient): VKClient,
     str(BITClient): BITClient,
     str(YAClickClient): YAClickClient,
-    str(ISGDClient): ISGDClient
+    str(ISGDClient): ISGDClient,
+    str(CleanURLClient): CleanURLClient,
+    str(RelinkClient): RelinkClient
 }
 
 

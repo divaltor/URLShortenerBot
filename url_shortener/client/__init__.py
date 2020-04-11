@@ -1,4 +1,11 @@
-from . import vk_client, bit_client, yandex_click_client, isgd_client
+from . import (
+    vk_client,
+    bit_client,
+    yandex_click_client,
+    isgd_client,
+    cleanuri_client,
+    relink_client
+)
 
 import config
 
@@ -27,4 +34,19 @@ ISGDClient = isgd_client.ISGDClient(
     'https://is.gd'
 )
 
-__all__ = ['VKClient', 'BITClient', 'YAClickClient', 'ISGDClient']
+CleanURLClient = cleanuri_client.CleanURIClient(
+    'https://cleanuri.com/'
+)
+
+RelinkClient = relink_client.RelinkClient(
+    'https://rel.ink/'
+)
+
+__all__ = [
+    'VKClient',
+    'BITClient',
+    'YAClickClient',
+    'ISGDClient',
+    'CleanURLClient',
+    'RelinkClient'
+]
