@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-03-31 18:35+0300\n"
+"POT-Creation-Date: 2020-04-12 18:42+0300\n"
 "PO-Revision-Date: 2020-03-31 12:06+0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ru\n"
@@ -19,23 +19,27 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.8.0\n"
 
-#: handlers/callbacks.py:16 handlers/messages.py:46
+#: url_shortener/handlers/callbacks.py:16 url_shortener/handlers/messages.py:46
 msgid "Current language: {language}"
 msgstr "Текущий язык: {language}"
 
-#: handlers/callbacks.py:29
+#: url_shortener/handlers/callbacks.py:29
 msgid "Current shortener is: <b>{current_shortener}</b>"
 msgstr "Текущий сокращатель: <b>{current_shortener}</b>"
 
-#: handlers/inlines.py:18 handlers/messages.py:56
+#: url_shortener/handlers/inlines.py:20 url_shortener/handlers/messages.py:56
 msgid "Short link: {short_url}"
 msgstr "Короткая ссылка: {short_url}"
 
-#: handlers/messages.py:15
+#: url_shortener/handlers/inlines.py:36
+msgid "Link greater than 256 characters"
+msgstr "Ссылка больше, чем 256 символов"
+
+#: url_shortener/handlers/messages.py:15
 msgid "Send link like {link}"
 msgstr "Отправь ссылку типа {link}"
 
-#: handlers/messages.py:26
+#: url_shortener/handlers/messages.py:26
 msgid ""
 "Current shortener is: <b>{shortener}</b>\n"
 "\n"
@@ -45,7 +49,7 @@ msgstr ""
 "\n"
 "Доступные сокращатели: <b>{shortener}</b>\n"
 
-#: handlers/messages.py:58
+#: url_shortener/handlers/messages.py:58
 msgid "<b>Invalid link</b>"
 msgstr "<b>Неправильная ссылка</b>"
 
