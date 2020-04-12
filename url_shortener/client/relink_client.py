@@ -1,6 +1,6 @@
 from .http_client import BaseHTTPClient
 
-from typing import Optional
+from typing import Union
 
 from loguru import logger
 
@@ -13,7 +13,7 @@ class RelinkClient(BaseHTTPClient):
     def __repr__(self):
         return 'rel.ink'
 
-    def _process_response(self, response: Optional[dict, list]):
+    def _process_response(self, response: Union[dict, list]):
         if response and isinstance(response.get('url'), list):
             logger.error(f'Error message of response: {response["url"]}')
             return

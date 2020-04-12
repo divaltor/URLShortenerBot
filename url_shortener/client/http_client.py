@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import Optional, Union
 
 from abc import ABCMeta, abstractmethod
 
@@ -55,7 +55,7 @@ class BaseHTTPClient(metaclass=ABCMeta):
         return response
 
     @abstractmethod
-    def _process_response(self, response: Optional[dict, list]):
+    def _process_response(self, response: Union[dict, list]):
         raise NotImplementedError
 
     @abstractmethod
