@@ -4,9 +4,7 @@ from typing import Union
 from aiogram import types
 from aiogram.dispatcher.filters.filters import BoundFilter
 
-WRONG_CHARS = {
-    ord(' '): '%20'
-}
+from utils.shortener import translate_chars
 
 LINK_PATTERN = re.compile(r'((?:http|https)://(?:\w+:?\w*@)?(?:\S+)(?::[0-9]+)?(?:/|/(?:[\w#!:.?+=&%@\-/]))?)')
 
@@ -19,5 +17,5 @@ class RegexFilter(BoundFilter):
 
     async def check(self, message: Union[types.Message, types.InlineQuery]) -> bool:
         text = message.text if isinstance(message, types.Message) else message.query
-        if re.search(LINK_PATTERN, text.translate(WRONG_CHARS)):
+        if re.search(LINK_PATTERN, translate_chars(text)):
             return True

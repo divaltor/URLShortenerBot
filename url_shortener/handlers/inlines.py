@@ -3,13 +3,12 @@ import hashlib
 from aiogram import types
 from aiogram.dispatcher import FSMContext
 
-from utils.shortener import get_client
+from utils.shortener import get_client, translate_chars
 from middlewares.i18n import _
-from filters.regex_filter import WRONG_CHARS
 
 
 async def handle_inline_link(inline_query: types.InlineQuery, state: FSMContext):
-    text = inline_query.query.translate(WRONG_CHARS)
+    text = translate_chars(inline_query.query)
 
     result_id = hashlib.md5(text.encode()).hexdigest()
     client = await get_client(state)
