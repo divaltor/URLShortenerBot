@@ -13,8 +13,8 @@ class VKClient(BaseHTTPClient):
     def __repr__(self):
         return 'vk.cc'
 
-    def _process_response(self, response: Optional[dict] = None):
-        if response is None or response.get('error'):
+    def _process_response(self, response: Optional[dict, list]):
+        if response and response.get('error'):
             logger.error(f'Error message of response: {response["error"]["error_msg"]}. Error code: {response["error"]["error_code"]}')
             return
 

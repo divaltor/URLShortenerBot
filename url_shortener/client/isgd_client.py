@@ -13,8 +13,8 @@ class ISGDClient(BaseHTTPClient):
     def __repr__(self):
         return 'is.gd'
 
-    def _process_response(self, response: Optional[dict] = None):
-        if response is None or response.get('errorcode'):
+    def _process_response(self, response: Optional[dict, list]):
+        if response and response.get('errorcode'):
             logger.error(f'Error message of response: {response["errormessage"]}. Error code: {response["errorcode"]}')
             return
 

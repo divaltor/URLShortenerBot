@@ -55,7 +55,7 @@ class BaseHTTPClient(metaclass=ABCMeta):
         return response
 
     @abstractmethod
-    def _process_response(self, response: Optional[dict] = None):
+    def _process_response(self, response: Optional[dict, list]):
         raise NotImplementedError
 
     @abstractmethod
