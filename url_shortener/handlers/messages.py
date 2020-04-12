@@ -4,6 +4,8 @@ from aiogram.dispatcher import FSMContext
 from utils.shortener import get_lang, get_client, CLIENTS
 from middlewares.i18n import _, i18n
 
+from filters.regex_filter import WRONG_CHARS
+
 
 async def send_start(msg: types.Message):
     setting_keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
@@ -47,7 +49,7 @@ async def handle_language(msg: types.Message, state: FSMContext):
 
 
 async def handle_link(msg: types.Message, state: FSMContext):
-    url = msg.text
+    url = msg.text.translate(WRONG_CHARS)
     client = await get_client(state)
 
     short_url = await client.get_short_link(url)
