@@ -6,6 +6,7 @@ import config
 
 import handlers
 import middlewares
+import filters
 
 storage = RedisStorage2(host=config.REDIS_HOST, port=config.REDIS_PORT)
 bot = Bot(config.BOT_TOKEN, parse_mode=types.ParseMode.HTML)
@@ -16,6 +17,7 @@ logger.add('../info.log', rotation='1 week')
 
 
 async def on_startup(dp: Dispatcher):
+    filters.setup(dp)
     handlers.setup(dp)
     middlewares.setup(dp)
 

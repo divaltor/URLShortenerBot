@@ -1,4 +1,5 @@
 import re
+from typing import Union
 
 from aiogram import types
 from aiogram.dispatcher.filters.filters import BoundFilter
@@ -16,6 +17,7 @@ class RegexFilter(BoundFilter):
     def __init__(self, regex):
         self.regex = regex
 
-    async def check(self, message: types.Message) -> bool:
-        if re.search(LINK_PATTERN, message.text.translate(WRONG_CHARS)):
+    async def check(self, message: Union[types.Message, types.InlineQuery]) -> bool:
+        text = message.text if isinstance(message, types.Message) else message.query
+        if re.search(LINK_PATTERN, text.translate(WRONG_CHARS)):
             return True
