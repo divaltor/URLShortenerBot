@@ -12,7 +12,7 @@ class ClientMiddleware(BaseMiddleware):
 
         async with state.proxy() as state_data:
             if state_data.get('shortener') is None:
-                state_data['shortener'] = 'vk.cc'
+                state_data['shortener'] = 'clck.ru'
 
             if state_data.get('locale') is None:
                 state_data['locale'] = 'en'
