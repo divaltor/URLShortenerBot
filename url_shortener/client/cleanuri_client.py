@@ -22,8 +22,6 @@ class CleanURIClient(BaseHTTPClient):
         return response['result_url']
 
     async def get_short_link(self, url: str):
-        logger.info(url)
-        logger.info(quote(url))
         response = await self.post('/api/v1/shorten', data={'url': url})
 
         return self._process_response(response.json())
