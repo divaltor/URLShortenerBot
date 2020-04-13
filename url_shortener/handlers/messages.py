@@ -2,13 +2,17 @@ from aiogram import types
 from aiogram.dispatcher import FSMContext
 
 from utils.shortener import get_lang, get_client, CLIENTS, translate_chars
-from utils.keyboards import get_lang_keyboard
 from middlewares.i18n import _, i18n
 
 
 async def send_start(msg: types.Message):
+    setting_keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
+    setting_keyboard.add(*[
+        types.KeyboardButton('⚙Settings'),
+        types.KeyboardButton('🇺🇸Language')
+    ])
 
-    await msg.answer(_('Send link like {link}').format(link='https://example.com'), reply_markup=get_lang_keyboard())
+    await msg.answer(_('Send link like {link}').format(link='https://example.com'), reply_markup=setting_keyboard)
 
 
 async def handle_settings(msg: types.Message, state: FSMContext):
