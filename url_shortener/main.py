@@ -8,7 +8,7 @@ import handlers
 import middlewares
 import filters
 
-storage = RedisStorage2(host=config.REDIS_HOST, port=config.REDIS_PORT)
+storage = RedisStorage2(host=config.REDIS_HOST, port=config.REDIS_PORT, password=config.REDIS_PASS)
 bot = Bot(config.BOT_TOKEN, parse_mode=types.ParseMode.HTML)
 dp = Dispatcher(bot, storage=storage)
 
