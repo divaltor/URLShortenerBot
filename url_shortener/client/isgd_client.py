@@ -1,6 +1,6 @@
 from .http_client import BaseHTTPClient
 
-from typing import Union
+from typing import Optional
 
 from loguru import logger
 
@@ -13,14 +13,14 @@ class ISGDClient(BaseHTTPClient):
     def __repr__(self):
         return 'is.gd'
 
-    def _process_response(self, response: Union[dict, list]):
+    def _process_response(self, response: dict) -> Optional[str]:
         if response and response.get('errorcode'):
             logger.error(f'Error message of response: {response["errormessage"]}. Error code: {response["errorcode"]}')
-            return
+            return None
 
         return response['shorturl']
 
-    async def get_short_link(self, url: str):
+    async def get_short_link(self, url: str) -> Optional[str]:
         response = await self.get('/create.php', params={
             'format': 'json',
             'url': url
