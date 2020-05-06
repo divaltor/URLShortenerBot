@@ -20,6 +20,8 @@ envparse = "^0.2.0"
 
 [tool.poetry.dev-dependencies]
 Babel = "^2.8.0"
+mypy = "^0.770"
+pylint = "^2.5.2"
 
 [build-system]
 requires = ["poetry>=0.12"]
