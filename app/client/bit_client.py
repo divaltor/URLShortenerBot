@@ -1,6 +1,6 @@
 from .http_client import BaseHTTPClient
 
-from typing import Optional
+from typing import Optional, Union
 
 from loguru import logger
 
@@ -13,7 +13,10 @@ class BITClient(BaseHTTPClient):
     def __repr__(self):
         return 'bit.ly'
 
-    def _process_response(self, response: dict) -> Optional[str]:
+    def _process_response(self, response: Union[list, dict]) -> Optional[str]:
+        if isinstance(response, list):
+            return None
+
         if response and response.get('message'):
             logger.error(f'Error message of response: {response["message"]}. Error code: {response.get("description")}')
             return None

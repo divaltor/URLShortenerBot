@@ -3,6 +3,7 @@ from typing import Optional, Union
 from abc import ABCMeta, abstractmethod
 
 import httpx
+from httpx import Response
 from loguru import logger
 
 
@@ -25,7 +26,7 @@ class BaseHTTPClient(metaclass=ABCMeta):
             http2=True
         )
 
-    async def get(self, url: str, params: Optional[dict] = None, headers: Optional[dict] = None):
+    async def get(self, url: str, params: Optional[dict] = None, headers: Optional[dict] = None) -> Response:
         custom_headers = headers or {}
         custom_params = params or {}
 
@@ -42,7 +43,7 @@ class BaseHTTPClient(metaclass=ABCMeta):
             params: Optional[dict] = None,
             headers: Optional[dict] = None,
             json: Optional[dict] = None
-    ):
+    ) -> Response:
         custom_headers = headers or {}
         custom_params = params or {}
         custom_data = data or {}
@@ -55,7 +56,7 @@ class BaseHTTPClient(metaclass=ABCMeta):
         return response
 
     @abstractmethod
-    def _process_response(self, response: Union[dict, list]):
+    def _process_response(self, response: Union[dict, list]) -> None:
         raise NotImplementedError
 
     @abstractmethod

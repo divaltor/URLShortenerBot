@@ -10,7 +10,7 @@ from aiogram.contrib.middlewares.i18n import I18nMiddleware as BaseI18nMiddlewar
 class LanguageData:
     flag: str
     title: str
-    label: str = field(init=False, default=None)
+    label: str = field(init=False)
 
     def __post_init__(self):
         self.label = f"{self.flag} {self.title}"
