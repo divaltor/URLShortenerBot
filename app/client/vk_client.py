@@ -1,6 +1,6 @@
 from .http_client import BaseHTTPClient
 
-from typing import Optional
+from typing import Optional, Union
 
 from loguru import logger
 
