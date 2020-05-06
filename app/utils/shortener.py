@@ -1,8 +1,8 @@
 from aiogram.dispatcher import FSMContext
 
-from client import *
-from client.http_client import BaseHTTPClient
-from middlewares.i18n import i18n
+from app.client import VKClient, BITClient, YAClickClient, ISGDClient, CleanURLClient, RelinkClient
+from app.client.http_client import BaseHTTPClient
+from app.middlewares.i18n import i18n
 
 WRONG_CHARS = {
     '&amp;': '',

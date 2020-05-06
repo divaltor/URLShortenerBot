@@ -3,8 +3,8 @@ import hashlib
 from aiogram import types
 from aiogram.dispatcher import FSMContext
 
-from utils.shortener import get_client, translate_chars
-from middlewares.i18n import _
+from app.utils.shortener import get_client, translate_chars
+from app.middlewares.i18n import _
 
 
 async def handle_inline_link(inline_query: types.InlineQuery, state: FSMContext):

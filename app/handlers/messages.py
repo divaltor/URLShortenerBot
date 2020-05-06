@@ -1,8 +1,8 @@
 from aiogram import types
 from aiogram.dispatcher import FSMContext
 
-from utils.shortener import get_lang, get_client, CLIENTS, translate_chars
-from middlewares.i18n import _, i18n
+from app.utils.shortener import get_lang, get_client, CLIENTS, translate_chars
+from app.middlewares.i18n import _, i18n
 
 
 async def send_start(msg: types.Message):

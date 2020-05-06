@@ -4,7 +4,7 @@ from typing import Union
 from aiogram import types
 from aiogram.dispatcher.filters.filters import BoundFilter
 
-from utils.shortener import translate_chars
+from app.utils.shortener import translate_chars
 
 LINK_PATTERN = re.compile(r'((?:http|https)://(?:\w+:?\w*@)?(?:\S+)(?::[0-9]+)?(?:/|/(?:[\w#!:.?+=&%@\-/]))?)')
 

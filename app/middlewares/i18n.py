@@ -1,10 +1,9 @@
+from dataclasses import dataclass, field
 from pathlib import Path
-
-from dataclasses import field, dataclass
 from typing import Any, Tuple
 
-from aiogram.contrib.middlewares.i18n import I18nMiddleware as BaseI18nMiddleware
 from aiogram import Dispatcher
+from aiogram.contrib.middlewares.i18n import I18nMiddleware as BaseI18nMiddleware
 
 
 @dataclass

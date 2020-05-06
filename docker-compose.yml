@@ -13,7 +13,7 @@ services:
       SERVICE_TOKEN:
       REDIS_HOST: redis
       REDIS_PORT: 6379
-    command: python3 ./url_shortener/main.py
+    command: python3 ./app/main.py
 
   redis:
     image: redis:5-alpine

@@ -1,8 +1,8 @@
 from aiogram import types
 from aiogram.dispatcher import FSMContext
 
-from utils.shortener import get_lang
-from middlewares.i18n import _
+from app.utils.shortener import get_lang
+from app.middlewares.i18n import _
 
 
 async def change_language(query: types.CallbackQuery, state: FSMContext):

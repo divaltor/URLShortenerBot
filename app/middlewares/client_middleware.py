@@ -1,13 +1,12 @@
 from aiogram.dispatcher.middlewares import BaseMiddleware
 from aiogram.dispatcher import FSMContext
-from aiogram import types
 
 
 class ClientMiddleware(BaseMiddleware):
     def __init__(self):
         super().__init__()
 
-    async def on_process_message(self, msg: types.Message, data: dict):
+    async def on_process_message(self, *, data: dict):
         state: FSMContext = data.get('state')
 
         async with state.proxy() as state_data:

@@ -2,11 +2,7 @@ from aiogram import Bot, Dispatcher, executor, types
 from aiogram.contrib.fsm_storage.redis import RedisStorage2
 from loguru import logger
 
-import config
-
-import handlers
-import middlewares
-import filters
+from app import config, handlers, middlewares, filters
 
 storage = RedisStorage2(host=config.REDIS_HOST, port=config.REDIS_PORT, password=config.REDIS_PASS)
 bot = Bot(config.BOT_TOKEN, parse_mode=types.ParseMode.HTML)

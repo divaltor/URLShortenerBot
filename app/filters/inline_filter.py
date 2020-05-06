@@ -1,7 +1,7 @@
 from aiogram import types
 from aiogram.dispatcher.filters.filters import BoundFilter
 
-from utils.shortener import translate_chars
+from app.utils.shortener import translate_chars
 
 
 class InlineFilter(BoundFilter):
