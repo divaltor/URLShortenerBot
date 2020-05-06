@@ -13,4 +13,4 @@ RUN poetry config virtualenvs.create false && poetry install --no-interaction --
 
 COPY . /code/
 
-RUN pybabel compile -d url_shortener/locales -D mybot
+RUN pybabel compile -d app/locales -D mybot
