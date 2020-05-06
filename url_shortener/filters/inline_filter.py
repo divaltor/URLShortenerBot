@@ -13,3 +13,5 @@ class InlineFilter(BoundFilter):
     async def check(self, inline_query: types.InlineQuery) -> bool:
         if len(translate_chars(inline_query.query)) < 256:
             return True
+
+        return False
