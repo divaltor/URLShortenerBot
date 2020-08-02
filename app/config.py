@@ -11,4 +11,4 @@ BOT_TOKEN = env.str('BOT_TOKEN')
 
 REDIS_HOST = env.str('REDIS_HOST', default='localhost')
 REDIS_PORT = env.int('REDIS_PORT', default=6379)
-REDIS_PASS = env.str('REDIS_PASS')
+REDIS_PASS = env.str('REDIS_PASS', default=None)
